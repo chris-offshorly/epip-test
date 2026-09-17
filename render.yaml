@@ -10,7 +10,7 @@
 
 services:
   - type: web
-    name: epiphanies-website
+    name: epip-test
     runtime: static
     branch: main
     autoDeploy: true
