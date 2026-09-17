@@ -19,7 +19,16 @@ const articles = defineCollection({
 		authorName: z.string(),
 		authorRole: z.string(),
 		authorBio: z.string(),
-	}),
+		// Optional per-article SEO overrides. Nullable because an all-empty
+		// object round-trips through YAML as null.
+		seo: z
+			.object({
+				title: z.string().optional(),
+				description: z.string().optional(),
+				image: z.string().optional(),
+			})
+			.nullish(),
+	})
 });
 
 export const collections = { articles };

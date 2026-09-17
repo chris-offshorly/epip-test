@@ -22,7 +22,18 @@ const dateISO = article.data.date.toISOString().slice(0, 10);
 const toc = headings.filter((h) => h.depth === 2).map((h) => ({ text: h.text, id: h.slug }));
 ---
 
-<BaseLayout title={article.data.title} description={article.data.excerpt}>
+<BaseLayout
+	title={article.data.seo?.title || article.data.title}
+	description={article.data.seo?.description || article.data.excerpt}
+	image={article.data.seo?.image || undefined}
+	type="article"
+	publishedTime={article.data.date.toISOString()}
+	author={article.data.authorName}
+	breadcrumbs={[
+		{ name: 'Insights', url: '/insights' },
+		{ name: article.data.title, url: `/insights/${article.id}` },
+	]}
+>
 	<nav class="breadcrumb" aria-label="Breadcrumb">
 		<a class="eyebrow" href="/insights">Insights</a>
 		<span class="eyebrow" aria-hidden="true">/</span>

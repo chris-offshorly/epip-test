@@ -14,11 +14,43 @@
     "eyebrow": "Contact form",
     "intro": "Tell us a little about what’s on your mind. We’ll reply within two working days.",
     "fields": [
-      { "label": "Name", "name": "name", "type": "text", "placeholder": "Your name", "autocomplete": "name", "required": true },
-      { "label": "Email", "name": "email", "type": "email", "placeholder": "you@company.com", "autocomplete": "email", "required": true },
-      { "label": "Company", "name": "company", "type": "text", "placeholder": "Organisation", "autocomplete": "organization", "required": false },
-      { "label": "Message", "name": "message", "type": "textarea", "placeholder": "How can we help?", "required": true }
+      {
+        "label": "Name",
+        "name": "name",
+        "type": "text",
+        "placeholder": "Your name",
+        "autocomplete": "name",
+        "required": true
+      },
+      {
+        "label": "Email",
+        "name": "email",
+        "type": "email",
+        "placeholder": "you@company.com",
+        "autocomplete": "email",
+        "required": true
+      },
+      {
+        "label": "Company",
+        "name": "company",
+        "type": "text",
+        "placeholder": "Organisation",
+        "autocomplete": "organization",
+        "required": false
+      },
+      {
+        "label": "Message",
+        "name": "message",
+        "type": "textarea",
+        "placeholder": "How can we help?",
+        "required": true
+      }
     ],
     "submitLabel": "Send message"
+  },
+  "seo": {
+    "title": "",
+    "description": "",
+    "image": ""
   }
 }

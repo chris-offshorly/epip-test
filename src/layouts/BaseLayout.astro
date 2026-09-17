@@ -1,18 +1,96 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import site from '../content/settings.json';
 import '../styles/global.css';
+
+interface Breadcrumb {
+	name: string;
+	url: string;
+}
 
 interface Props {
 	title: string;
 	description?: string;
+	/** Social share image. Root-relative or absolute; defaults to the brand card. */
+	image?: string;
+	type?: 'website' | 'article';
+	/** ISO date, used for og:article and Article schema. */
+	publishedTime?: string;
+	author?: string;
+	noindex?: boolean;
+	breadcrumbs?: Breadcrumb[];
 }
 
-const { title, description } = Astro.props;
+const {
+	title,
+	description,
+	image,
+	type = 'website',
+	publishedTime,
+	author,
+	noindex = false,
+	breadcrumbs,
+} = Astro.props;
 
-const fullTitle = title.includes('Epiphanies') ? title : `${title} — Epiphanies`;
-const metaDescription = description ?? 'Epiphanies is a boutique people performance consultancy.';
-const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+const base = Astro.site ?? new URL(Astro.url.origin);
+const abs = (path: string) => new URL(path, base).href;
+
+const fullTitle = title.includes(site.name) ? title : `${title} — ${site.name}`;
+const metaDescription = description ?? site.description;
+const canonical = abs(Astro.url.pathname);
+const ogImage = abs(image ?? '/images/og-default.jpg');
+
+const orgId = `${abs('/')}#organisation`;
+
+const organisation = {
+	'@type': 'Organization',
+	'@id': orgId,
+	name: site.name,
+	legalName: site.legalName,
+	url: abs('/'),
+	logo: abs('/images/logo-primary.png'),
+	email: site.email,
+	description: site.description,
+};
+
+const schemas: Record<string, unknown>[] = [organisation];
+
+if (type === 'article') {
+	schemas.push({
+		'@type': 'Article',
+		headline: title,
+		description: metaDescription,
+		datePublished: publishedTime,
+		dateModified: publishedTime,
+		author: author ? { '@type': 'Person', name: author } : undefined,
+		image: ogImage,
+		mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+		publisher: { '@id': orgId },
+	});
+	if (breadcrumbs?.length) {
+		schemas.push({
+			'@type': 'BreadcrumbList',
+			itemListElement: breadcrumbs.map((crumb, i) => ({
+				'@type': 'ListItem',
+				position: i + 1,
+				name: crumb.name,
+				item: abs(crumb.url),
+			})),
+		});
+	}
+} else {
+	schemas.push({
+		'@type': 'WebPage',
+		'@id': canonical,
+		url: canonical,
+		name: fullTitle,
+		description: metaDescription,
+		isPartOf: { '@id': orgId },
+	});
+}
+
+const jsonLd = { '@context': 'https://schema.org', '@graph': schemas };
 ---
 
 <!doctype html>
@@ -21,17 +99,30 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/png" href="/images/icon.png" />
+		<link rel="apple-touch-icon" href="/images/icon.png" />
 		<meta name="generator" content={Astro.generator} />
 
 		<title>{fullTitle}</title>
 		<meta name="description" content={metaDescription} />
 		<link rel="canonical" href={canonical} />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
 
-		<meta property="og:type" content="website" />
+		<meta property="og:type" content={type} />
+		<meta property="og:site_name" content={site.name} />
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={metaDescription} />
 		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:locale" content="en_GB" />
+		{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+		{author && <meta property="article:author" content={author} />}
+
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={fullTitle} />
+		<meta name="twitter:description" content={metaDescription} />
+		<meta name="twitter:image" content={ogImage} />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,6 +130,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 			href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
+
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 	</head>
 	<body>
 		<div class="page">

@@ -9,7 +9,11 @@ import page from '../content/pages/contact.json';
 const FORM_ENDPOINT = '';
 ---
 
-<BaseLayout title={page.hero.title} description={page.hero.lede}>
+<BaseLayout
+	title={page.seo?.title || page.hero.title}
+	description={page.seo?.description || page.hero.lede}
+	image={page.seo?.image || undefined}
+>
 	<section>
 		<div class="hero hero--sub">
 			<div class="hero__text">

@@ -101,7 +101,10 @@
         "question": "How do you measure impact?",
         "answer": "We agree what success looks like up front, then track it through re-assessment, feedback from the people around you, and business results."
       },
-      { "question": "Do you work virtually?", "answer": "Yes. We work in person and online, wherever you are." },
+      {
+        "question": "Do you work virtually?",
+        "answer": "Yes. We work in person and online, wherever you are."
+      },
       {
         "question": "How do we start?",
         "answer": "Email the.team@epiphaniesllp.com or use the contact form. No pitch, just a conversation about what you’re trying to achieve."
@@ -113,5 +116,10 @@
     "title": "Tell us what you’re wrestling with. We’ll tell you honestly whether we can help.",
     "label": "Get in touch",
     "href": "/contact"
+  },
+  "seo": {
+    "title": "",
+    "description": "",
+    "image": ""
   }
 }

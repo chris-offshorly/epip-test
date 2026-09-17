@@ -1,10 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	// Used for canonical URLs, sitemaps and social preview tags.
-	// Confirm this matches the URL Render assigns after the first deploy and
-	// update it if the service name was already taken on Render.
+	// Single source of truth for canonical URLs, sitemap entries and social
+	// preview tags. Change this one line if the domain changes.
 	site: 'https://epip-test.onrender.com',
+	integrations: [sitemap()],
 });

@@ -3,7 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import page from '../content/pages/home.json';
 ---
 
-<BaseLayout title={page.hero.title} description={page.hero.body}>
+<BaseLayout
+	title={page.seo?.title || page.hero.title}
+	description={page.seo?.description || page.hero.body}
+	image={page.seo?.image || undefined}
+>
 	<section class="hero">
 		<div class="hero__text">
 			<h1 class="h1">{page.hero.title}</h1>

@@ -74,6 +74,28 @@ Set **Order** to control the position on the Insights page.
   Without it Sveltia writes `null` for a blank optional field, which falls
   outside the content schema.
 
+## SEO
+
+Everything derives from `site:` in `astro.config.mjs`, so changing the domain
+updates canonical URLs, the sitemap and social tags in one place.
+
+| Signal | Handled by |
+| :--- | :--- |
+| Title + meta description | Page content, overridable per page in the CMS |
+| Canonical URL | `site` + the page path |
+| Open Graph + Twitter cards | `BaseLayout`, with a 1200x630 default share image |
+| Structured data | Organization on every page; Article + BreadcrumbList on articles |
+| Sitemap | `@astrojs/sitemap`, generated at build (/sitemap-index.xml) |
+| robots.txt | Generated at `src/pages/robots.txt.ts` so it can't go stale |
+| 404 | `src/pages/404.astro`, served by Render for unmatched routes |
+
+**Per-page overrides.** Every page and article has an optional **SEO** block in
+the CMS — meta title, meta description and a social share image. Leave them
+blank to fall back to the page content, which is the right default.
+
+**Still worth doing:** submit the sitemap to Google Search Console once the final
+domain is live, and add redirects if you're replacing an existing site.
+
 ## Deployment
 
 `render.yaml` declares the site as a Render Blueprint. Pushing to `main`

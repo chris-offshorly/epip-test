@@ -52,11 +52,26 @@
   "values": {
     "eyebrow": "Values",
     "items": [
-      { "title": "We meet you where you are", "body": "We take the time to understand your context and ambitions." },
-      { "title": "Evidence over fashion", "body": "We use what research shows works, not what’s trending." },
-      { "title": "Candour with care", "body": "We say the difficult thing, kindly; clear is kind." },
-      { "title": "Practise what we preach", "body": "We test our methods on ourselves first." },
-      { "title": "Results that outlast us", "body": "Success is what continues after we leave." },
+      {
+        "title": "We meet you where you are",
+        "body": "We take the time to understand your context and ambitions."
+      },
+      {
+        "title": "Evidence over fashion",
+        "body": "We use what research shows works, not what’s trending."
+      },
+      {
+        "title": "Candour with care",
+        "body": "We say the difficult thing, kindly; clear is kind."
+      },
+      {
+        "title": "Practise what we preach",
+        "body": "We test our methods on ourselves first."
+      },
+      {
+        "title": "Results that outlast us",
+        "body": "Success is what continues after we leave."
+      },
       {
         "title": "Lasting partnership",
         "body": "We stay invested in your success long after the work is done; a sounding board when you need one, not a meter running."
@@ -65,7 +80,12 @@
   },
   "experience": {
     "eyebrow": "Our experience",
-    "stats": ["Est. 1999", "30+ countries", "FTSE C-suite experience", "842 miles in 45h 11m"],
+    "stats": [
+      "Est. 1999",
+      "30+ countries",
+      "FTSE C-suite experience",
+      "842 miles in 45h 11m"
+    ],
     "body": "We have designed and delivered leadership work in manufacturing, financial services, fintech, insurance, FMCG, retail, media and travel food service, for executive teams, boards and the leaders coming up behind them. And we have led from the inside: Nathan’s executive career includes a $150m organisational redesign, female representation in a top-100 leadership group raised from 22% to 38%, and performance turnarounds in complex, multi-site businesses."
   },
   "testimonial": {
@@ -76,19 +96,58 @@
     "eyebrow": "Clients & partners",
     "body": "Organisations we have worked with include American Express, BMI, Centrica, Ernst & Young, Heineken, Johnson Matthey, Marks & Spencer, Prudential, Royal Mail, SABMiller, Tetra Pak, Vodafone and Worldpay.",
     "logos": [
-      { "name": "American Express", "file": "/images/client-american-express.svg" },
-      { "name": "BMI", "file": "/images/client-bmi.svg" },
-      { "name": "Centrica", "file": "/images/client-centrica.svg" },
-      { "name": "Ernst & Young", "file": "/images/client-ernst-young.svg" },
-      { "name": "Heineken", "file": "/images/client-heineken.svg" },
-      { "name": "Johnson Matthey", "file": "/images/client-johnson-matthey.svg" },
-      { "name": "Marks & Spencer", "file": "/images/client-marks-spencer.svg" },
-      { "name": "Prudential", "file": "/images/client-prudential.svg" },
-      { "name": "Royal Mail", "file": "/images/client-royal-mail.png" },
-      { "name": "SABMiller", "file": "/images/client-sabmiller.svg" },
-      { "name": "Tetra Pak", "file": "/images/client-tetra-pak.svg" },
-      { "name": "Vodafone", "file": "/images/client-vodafone.svg" },
-      { "name": "Worldpay", "file": "/images/client-worldpay.svg" }
+      {
+        "name": "American Express",
+        "file": "/images/client-american-express.svg"
+      },
+      {
+        "name": "BMI",
+        "file": "/images/client-bmi.svg"
+      },
+      {
+        "name": "Centrica",
+        "file": "/images/client-centrica.svg"
+      },
+      {
+        "name": "Ernst & Young",
+        "file": "/images/client-ernst-young.svg"
+      },
+      {
+        "name": "Heineken",
+        "file": "/images/client-heineken.svg"
+      },
+      {
+        "name": "Johnson Matthey",
+        "file": "/images/client-johnson-matthey.svg"
+      },
+      {
+        "name": "Marks & Spencer",
+        "file": "/images/client-marks-spencer.svg"
+      },
+      {
+        "name": "Prudential",
+        "file": "/images/client-prudential.svg"
+      },
+      {
+        "name": "Royal Mail",
+        "file": "/images/client-royal-mail.png"
+      },
+      {
+        "name": "SABMiller",
+        "file": "/images/client-sabmiller.svg"
+      },
+      {
+        "name": "Tetra Pak",
+        "file": "/images/client-tetra-pak.svg"
+      },
+      {
+        "name": "Vodafone",
+        "file": "/images/client-vodafone.svg"
+      },
+      {
+        "name": "Worldpay",
+        "file": "/images/client-worldpay.svg"
+      }
     ]
   },
   "cta": {
@@ -96,5 +155,10 @@
     "title": "Tell us what you’re wrestling with. We’ll tell you honestly whether we can help.",
     "label": "Get in touch",
     "href": "/contact"
+  },
+  "seo": {
+    "title": "",
+    "description": "",
+    "image": ""
   }
 }

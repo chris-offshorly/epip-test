@@ -4,7 +4,10 @@
     "title": "Ideas that change performance",
     "lede": "The best ideas often emerge when we look beyond the obvious.",
     "body": "Our articles explore leadership, management, resilience, innovation and performance, combining practical experience with evidence-based thinking and real-world application. Designed to challenge assumptions and inspire action,",
-    "cta": { "label": "Browse all articles", "href": "#featured" },
+    "cta": {
+      "label": "Browse all articles",
+      "href": "#featured"
+    },
     "image": "/images/insights-hero.webp",
     "imageAlt": "A cantilevered stone building casting angular shadows across a paved courtyard"
   },
@@ -12,7 +15,14 @@
     "eyebrow": "Featured articles",
     "note": "We have been writing about performance since before it was fashionable — over 250 articles across two decades. Start with these."
   },
-  "themes": ["All", "Leadership", "Management", "Resilience", "Innovation", "Performance"],
+  "themes": [
+    "All",
+    "Leadership",
+    "Management",
+    "Resilience",
+    "Innovation",
+    "Performance"
+  ],
   "resources": {
     "eyebrow": "Resources",
     "items": [
@@ -27,7 +37,10 @@
         "body": "Dom speaks on high performance, resilience and what a world record teaches about leading a business.",
         "image": "",
         "draft": false,
-        "cta": { "label": "Enquire", "href": "/contact" }
+        "cta": {
+          "label": "Enquire",
+          "href": "/contact"
+        }
       },
       {
         "title": "Tools",
@@ -42,5 +55,10 @@
     "title": "Tell us what you’re wrestling with. We’ll tell you honestly whether we can help.",
     "label": "Get in touch",
     "href": "/contact"
+  },
+  "seo": {
+    "title": "",
+    "description": "",
+    "image": ""
   }
 }

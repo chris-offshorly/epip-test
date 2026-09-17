@@ -6,7 +6,11 @@ import page from '../content/pages/insights.json';
 const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title="Insights" description={page.hero.body}>
+<BaseLayout
+	title={page.seo?.title || page.hero.title}
+	description={page.seo?.description || page.hero.body}
+	image={page.seo?.image || undefined}
+>
 	<section>
 		<div class="hero hero--sub">
 			<div class="hero__text">
