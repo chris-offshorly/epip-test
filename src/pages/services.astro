@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import page from '../content/pages/services.json';
+---
+
+<BaseLayout title={page.hero.title} description={page.hero.lede}>
+	<section>
+		<div class="hero hero--sub">
+			<div class="hero__text">
+				<p class="eyebrow">{page.hero.eyebrow}</p>
+				<h1 class="h1">{page.hero.title}</h1>
+				<div>
+					<p class="lede">{page.hero.lede}</p>
+				</div>
+			</div>
+			<div class="hero__media">
+				<img src={page.hero.image} alt={page.hero.imageAlt} width="6000" height="4000" />
+			</div>
+		</div>
+	</section>
+
+	<section class="sec" style="border-top:1px solid var(--rule)">
+		<div class="split" style="grid-template-columns:1fr 1fr;align-items:center">
+			<div style="display:flex;flex-direction:column;gap:1rem">
+				<h2 class="h2 h2--lg">{page.howWeWork.title}</h2>
+				<div style="display:flex;flex-direction:column;gap:1rem">
+					<p class="lede">{page.howWeWork.lede}</p>
+					{page.howWeWork.paragraphs.map((p) => <p class="p">{p}</p>)}
+				</div>
+			</div>
+			<div class="model-box">
+				<img src={page.howWeWork.image} alt={page.howWeWork.imageAlt} width="1042" height="709" />
+			</div>
+		</div>
+	</section>
+
+	<section class="sec resources">
+		<h2 class="eyebrow" style="margin-bottom:1.625rem">{page.serviceAreas.eyebrow}</h2>
+		<div class="service-list">
+			{
+				page.serviceAreas.items.map((service) => (
+					<article
+						class="service-card"
+						id={service.title.toLowerCase().replace(/ & /g, '-and-').replace(/[^a-z0-9]+/g, '-')}
+					>
+						<div class="service-card__img">
+							<img src={service.image} alt={service.imageAlt} loading="lazy" />
+						</div>
+						<div class="service-card__body">
+							<h2 class="h2">{service.title}</h2>
+							<p class="p">{service.body}</p>
+							<div class="service-card__suits">
+								<p class="eyebrow">Suits</p>
+								<p class="p">{service.suits}</p>
+							</div>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="sec values">
+		<div style="max-width:640px;display:flex;flex-direction:column;gap:0.75rem">
+			<h2 class="h2 h2--lg" style="color:var(--white)">{page.methodology.title}</h2>
+			<p class="lede">{page.methodology.lede}</p>
+		</div>
+		<div class="method">
+			{
+				page.methodology.steps.map((step) => (
+					<div class="method__item">
+						<img src={step.icon} alt="" width="60" height="60" aria-hidden="true" />
+						<p>
+							<strong>{step.title}</strong> {step.body}
+						</p>
+					</div>
+				))
+			}
+			<p class="method__closing">{page.methodology.closing}</p>
+		</div>
+	</section>
+
+	<section class="sec">
+		<h2 class="eyebrow" style="margin-bottom:1.5rem">{page.caseStudies.eyebrow}</h2>
+		<div class="case-grid">
+			{
+				page.caseStudies.items.map((study) => (
+					<article class="case-card">
+						<h3 class="h3">{study.title}</h3>
+						<p class="p">{study.body}</p>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="sec resources">
+		<div class="faq">
+			<h2 class="eyebrow">{page.faqs.eyebrow}</h2>
+			<div>
+				{
+					page.faqs.items.map((faq, i) => (
+						<details class="faq-item" open={i === 0}>
+							<summary>
+								<span class="h3 faq-item__q">{faq.question}</span>
+								<svg
+									class="faq-item__icon"
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.8"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									aria-hidden="true"
+								>
+									<path d="m6 9 6 6 6-6" />
+								</svg>
+							</summary>
+							<p class="p faq-item__a">{faq.answer}</p>
+						</details>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="sec cta">
+		<div class="cta__text">
+			<h2 class="eyebrow">{page.cta.eyebrow}</h2>
+			<p class="h2">{page.cta.title}</p>
+		</div>
+		<a class="btn inverse" href={page.cta.href}>{page.cta.label}</a>
+	</section>
+</BaseLayout>

@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import page from '../content/pages/insights.json';
+
+const articles = (await getCollection('articles')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Insights" description={page.hero.body}>
+	<section>
+		<div class="hero hero--sub">
+			<div class="hero__text">
+				<p class="eyebrow">{page.hero.eyebrow}</p>
+				<h1 class="h1">{page.hero.title}</h1>
+				<div>
+					<p class="lede">{page.hero.lede}</p>
+					<p class="p">{page.hero.body}</p>
+				</div>
+				<div class="hero__cta">
+					<a class="btn" href={page.hero.cta.href}>{page.hero.cta.label}</a>
+				</div>
+			</div>
+			<div class="hero__media">
+				<img
+					src={page.hero.image}
+					alt={page.hero.imageAlt}
+					width="6192"
+					height="4128"
+					style="object-position:center 45%"
+				/>
+			</div>
+		</div>
+	</section>
+
+	<section
+		class="sec"
+		id="featured"
+		style="padding-top:4rem;padding-bottom:3.5rem;border-top:1px solid var(--rule)"
+	>
+		<div class="filters">
+			<div class="search">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+					<circle cx="11" cy="11" r="7"></circle>
+					<path d="m20 20-3.5-3.5"></path>
+				</svg>
+				<input type="search" placeholder="Search articles" aria-label="Search articles" />
+			</div>
+			<div class="pills" role="group" aria-label="Filter by theme">
+				{
+					page.themes.map((theme, i) => (
+						<button class="pill" type="button" aria-pressed={i === 0 ? 'true' : 'false'}>
+							{theme}
+						</button>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="section-head">
+			<h2 class="eyebrow">{page.featured.eyebrow}</h2>
+			<div class="section-head__note">
+				<p class="p">{page.featured.note}</p>
+			</div>
+		</div>
+
+		<div class="card-grid">
+			{
+				articles.map((article) => (
+					<article class="article-card">
+						<div class="article-img ph" role="img" aria-label="Article image to follow" />
+						<h3 class="h3">
+							<a href={`/insights/${article.id}`}>{article.data.title}</a>
+						</h3>
+						<p class="p">{article.data.excerpt}</p>
+						<a class="eyebrow" href={`/insights/${article.id}`}>
+							Read article
+						</a>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="sec resources">
+		<h2 class="eyebrow" style="margin-bottom:1.625rem">{page.resources.eyebrow}</h2>
+		<div class="card-grid card-grid--3" style="margin-top:0">
+			{
+				page.resources.items.map((item) => (
+					<div class:list={['resource-card', item.draft && 'resource-card--draft']}>
+						{item.image ? (
+							<div class="resource-card__img">
+								<img src={item.image} alt={item.title} loading="lazy" />
+							</div>
+						) : (
+							<div
+								class="resource-card__img ph"
+								role="img"
+								aria-label={`${item.title} image to follow`}
+							/>
+						)}
+						<h3 class="h3">{item.title}</h3>
+						<p class="p">{item.body}</p>
+						{item.cta && <a class="btn" href={item.cta.href}>{item.cta.label}</a>}
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="sec cta">
+		<div class="cta__text">
+			<h2 class="eyebrow">{page.cta.eyebrow}</h2>
+			<p class="h2">{page.cta.title}</p>
+		</div>
+		<a class="btn inverse" href={page.cta.href}>{page.cta.label}</a>
+	</section>
+</BaseLayout>

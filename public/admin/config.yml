@@ -1,0 +1,440 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Sveltia CMS configuration — https://sveltiacms.app/en/docs/
+#
+# Astro never reads this file. It only defines the editing UI, so changes here
+# cannot break the website build.
+
+backend:
+  name: github
+  # Replace with your repository, e.g. your-username/your-repo
+  repo: chris-offshorly/epip-test
+  branch: main
+  # Signing in with GitHub (rather than a personal access token) needs an OAuth
+  # client. Deploy https://github.com/sveltia/sveltia-cms-auth to Cloudflare
+  # Workers (free), then uncomment this and point it at your worker URL.
+  # base_url: https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
+
+media_folder: public/images
+public_folder: /images
+
+# By default Sveltia writes *something* for every field — a blank optional
+# field becomes `null`, which falls outside the Astro content schema. This
+# drops empty optionals instead.
+output:
+  omit_empty_optional_fields: true
+
+collections:
+  # ---------------------------------------------------------------- articles
+  - name: articles
+    label: Articles
+    label_singular: Article
+    icon: article
+    folder: src/content/articles
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    identifier_field: title
+    sortable_fields: [order, date, title]
+    summary: "{{title}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: Theme
+        name: theme
+        widget: select
+        options: [Leadership, Management, Resilience, Innovation, Performance]
+      - { label: Excerpt, name: excerpt, widget: text, hint: Shown on the Insights cards. }
+      - { label: Standfirst, name: standfirst, widget: text, hint: The opening line of the article. }
+      - label: Date
+        name: date
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        format: YYYY-MM-DD
+        picker_utc: true
+      - { label: Order, name: order, widget: number, default: 0, hint: Lower numbers appear first. }
+      - { label: Reading time, name: readingTime, widget: string, hint: "e.g. 6 min read" }
+      - { label: Author name, name: authorName, widget: string }
+      - { label: Author role, name: authorRole, widget: string }
+      - { label: Author bio, name: authorBio, widget: text }
+      - { label: Body, name: body, widget: richtext }
+
+  # ------------------------------------------------------------------- pages
+  - name: pages
+    label: Pages
+    icon: description
+    files:
+      - name: home
+        label: Homepage
+        file: src/content/pages/home.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Standfirst, name: lede, widget: text }
+              - { label: Body, name: body, widget: text }
+              - label: Button
+                name: cta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Image alt text, name: imageAlt, widget: string }
+          - label: Stat strip
+            name: stats
+            widget: list
+            field: { label: Stat, name: stat, widget: string }
+          - label: What we do
+            name: whatWeDo
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Intro, name: lede, widget: text }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: text, widget: text }
+          - label: The Epiphanies Edge
+            name: edge
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Standfirst, name: lede, widget: text }
+              - label: Pillars
+                name: pillars
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: image }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+              - { label: Diagram, name: image, widget: image }
+              - { label: Image alt text, name: imageAlt, widget: string }
+          - label: Services
+            name: services
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Services
+                name: items
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Link, name: href, widget: string }
+                  - { label: Image, name: image, widget: image }
+                  - { label: Image alt text, name: imageAlt, widget: string }
+                  - { label: Body, name: body, widget: text }
+          - label: Call to action
+            name: cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: text }
+              - { label: Button label, name: label, widget: string }
+              - { label: Button link, name: href, widget: string }
+
+      - name: services_page
+        label: Services
+        file: src/content/pages/services.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Standfirst, name: lede, widget: text }
+              - { label: Image, name: image, widget: image }
+              - { label: Image alt text, name: imageAlt, widget: string }
+          - label: How we work
+            name: howWeWork
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Standfirst, name: lede, widget: text }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: text, widget: text }
+              - { label: Diagram, name: image, widget: image }
+              - { label: Image alt text, name: imageAlt, widget: string }
+          - label: Service areas
+            name: serviceAreas
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Areas
+                name: items
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Image, name: image, widget: image }
+                  - { label: Image alt text, name: imageAlt, widget: string }
+                  - { label: Body, name: body, widget: text }
+                  - { label: Suits, name: suits, widget: text }
+          - label: Methodology
+            name: methodology
+            widget: object
+            fields:
+              - { label: Heading, name: title, widget: string }
+              - { label: Standfirst, name: lede, widget: text }
+              - label: Steps
+                name: steps
+                widget: list
+                fields:
+                  - { label: Icon, name: icon, widget: image }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+              - { label: Closing line, name: closing, widget: string }
+          - label: Case studies
+            name: caseStudies
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Case studies
+                name: items
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+          - label: FAQs
+            name: faqs
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Questions
+                name: items
+                widget: list
+                fields:
+                  - { label: Question, name: question, widget: string }
+                  - { label: Answer, name: answer, widget: text }
+          - label: Call to action
+            name: cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: text }
+              - { label: Button label, name: label, widget: string }
+              - { label: Button link, name: href, widget: string }
+
+      - name: about
+        label: About
+        file: src/content/pages/about.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Standfirst, name: lede, widget: text }
+              - { label: Image, name: image, widget: image }
+              - { label: Image alt text, name: imageAlt, widget: string }
+          - label: Our story
+            name: story
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Intro, name: lede, widget: text }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: text, widget: text }
+          - label: Meet the team
+            name: team
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: People
+                name: members
+                widget: list
+                fields:
+                  - { label: Name and role, name: name, widget: string }
+                  - { label: Photograph, name: image, widget: image }
+                  - { label: Crop position, name: position, widget: string, required: false, hint: "CSS object-position, e.g. center 22%" }
+                  - { label: Biography, name: bio, widget: text }
+          - label: Values
+            name: values
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Values
+                name: items
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+          - label: Our experience
+            name: experience
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Stats
+                name: stats
+                widget: list
+                field: { label: Stat, name: stat, widget: string }
+              - { label: Body, name: body, widget: text }
+          - label: Testimonial
+            name: testimonial
+            widget: object
+            fields:
+              - { label: Quote, name: quote, widget: text }
+              - { label: Attribution, name: attribution, widget: string }
+          - label: Clients and partners
+            name: clients
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Intro, name: body, widget: text }
+              - label: Logos
+                name: logos
+                widget: list
+                fields:
+                  - { label: Company name, name: name, widget: string }
+                  - { label: Logo, name: file, widget: image }
+          - label: Call to action
+            name: cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: text }
+              - { label: Button label, name: label, widget: string }
+              - { label: Button link, name: href, widget: string }
+
+      - name: insights_page
+        label: Insights
+        file: src/content/pages/insights.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Standfirst, name: lede, widget: text }
+              - { label: Body, name: body, widget: text }
+              - label: Button
+                name: cta
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Link, name: href, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Image alt text, name: imageAlt, widget: string }
+          - label: Featured articles intro
+            name: featured
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Note, name: note, widget: text }
+          - label: Filter themes
+            name: themes
+            widget: list
+            field: { label: Theme, name: theme, widget: string }
+          - label: Resources
+            name: resources
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - label: Cards
+                name: items
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+                  - { label: Image, name: image, widget: image, required: false }
+                  - { label: Awaiting sign-off, name: draft, widget: boolean, default: false, hint: Adds a dashed border to flag unpublished copy. }
+                  - label: Button
+                    name: cta
+                    widget: object
+                    required: false
+                    fields:
+                      - { label: Label, name: label, widget: string }
+                      - { label: Link, name: href, widget: string }
+          - label: Call to action
+            name: cta
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: text }
+              - { label: Button label, name: label, widget: string }
+              - { label: Button link, name: href, widget: string }
+
+      - name: contact
+        label: Contact
+        file: src/content/pages/contact.json
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Heading, name: title, widget: string }
+              - { label: Standfirst, name: lede, widget: text }
+              - label: Paragraphs
+                name: paragraphs
+                widget: list
+                field: { label: Paragraph, name: text, widget: text }
+              - { label: Image, name: image, widget: image }
+              - { label: Image alt text, name: imageAlt, widget: string }
+          - label: Form
+            name: form
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Intro, name: intro, widget: text }
+              - label: Fields
+                name: fields
+                widget: list
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Field name, name: name, widget: string, hint: Used in the submitted email. Avoid changing. }
+                  - label: Type
+                    name: type
+                    widget: select
+                    options: [text, email, tel, textarea]
+                  - { label: Placeholder, name: placeholder, widget: string, required: false }
+                  - { label: Autocomplete, name: autocomplete, widget: string, required: false }
+                  - { label: Required, name: required, widget: boolean, default: false }
+              - { label: Submit button label, name: submitLabel, widget: string }
+
+  # ---------------------------------------------------------------- settings
+  - name: settings
+    label: Settings
+    icon: settings
+    files:
+      - name: site
+        label: Site settings
+        file: src/content/settings.json
+        fields:
+          - { label: Site name, name: name, widget: string }
+          - { label: Legal name, name: legalName, widget: string }
+          - { label: Contact email, name: email, widget: string }
+          - { label: Location line, name: location, widget: string }
+          - label: Main navigation
+            name: nav
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+          - label: Header button
+            name: headerCta
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+          - label: Footer — Explore column
+            name: footerExplore
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+          - label: Footer — legal links
+            name: footerLegal
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }

@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "eyebrow": "Insights",
+    "title": "Ideas that change performance",
+    "lede": "The best ideas often emerge when we look beyond the obvious.",
+    "body": "Our articles explore leadership, management, resilience, innovation and performance, combining practical experience with evidence-based thinking and real-world application. Designed to challenge assumptions and inspire action,",
+    "cta": { "label": "Browse all articles", "href": "#featured" },
+    "image": "/images/insights-hero.webp",
+    "imageAlt": "A cantilevered stone building casting angular shadows across a paved courtyard"
+  },
+  "featured": {
+    "eyebrow": "Featured articles",
+    "note": "We have been writing about performance since before it was fashionable — over 250 articles across two decades. Start with these."
+  },
+  "themes": ["All", "Leadership", "Management", "Resilience", "Innovation", "Performance"],
+  "resources": {
+    "eyebrow": "Resources",
+    "items": [
+      {
+        "title": "The book",
+        "body": "Ultra-Distance Cycling: An Expert Guide to Endurance Cycling — Dominic Irvine and Professor Simon Jobson. Everything we teach about sustained performance, tested over 842 miles.",
+        "image": "",
+        "draft": false
+      },
+      {
+        "title": "Speaking",
+        "body": "Dom speaks on high performance, resilience and what a world record teaches about leading a business.",
+        "image": "",
+        "draft": false,
+        "cta": { "label": "Enquire", "href": "/contact" }
+      },
+      {
+        "title": "Tools",
+        "body": "Two or three one-page downloads — e.g. an After-Action Review guide, a team “first 90 days” checklist — in exchange for an email address.",
+        "image": "",
+        "draft": true
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Get in touch",
+    "title": "Tell us what you’re wrestling with. We’ll tell you honestly whether we can help.",
+    "label": "Get in touch",
+    "href": "/contact"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "title": "Perform when it matters",
+    "lede": "Access greater performance through a different perspective.",
+    "body": "Epiphanies is a boutique people performance consultancy. We help leaders, teams and organisations turn ability and potential into sustainable results — drawing on FTSE boardroom leadership, doctoral research and world-record-breaking sport.",
+    "cta": { "label": "Start a conversation", "href": "/contact" },
+    "image": "/images/home-header.webp",
+    "imageAlt": "Looking up into the curved atrium of a modern building against a blue sky"
+  },
+  "stats": ["Multisector", "Research-based", "FTSE C-suite experience", "30+ countries"],
+  "whatWeDo": {
+    "eyebrow": "What we do",
+    "lede": "We work with senior executives and their teams on how they think, decide and work together. No generic programmes and no jargon; we offer practical, evidence-based support that produces the “aha” moments our name promises, and delivers lasting improvements.",
+    "paragraphs": [
+      "We combine trusted research with your business context, then work alongside you to turn it into practical action that measurably improves performance.",
+      "Since 1999 we have done this in more than 30 countries, with executives in transition, boardrooms in crisis and with strong leadership teams who aspire to be exceptional."
+    ]
+  },
+  "edge": {
+    "title": "The Epiphanies Edge",
+    "lede": "Plenty of consultancies talk about high performance. We have lived it — three ways.",
+    "pillars": [
+      {
+        "icon": "/images/clipboard-icon.png",
+        "title": "Proven in practice",
+        "body": "We have held the roles we coach, most recently as Group Chief People Officer of a FTSE-listed business, alongside twenty-five years advising boards and executive teams of multinationals."
+      },
+      {
+        "icon": "/images/microscope-icon.png",
+        "title": "Grounded in science",
+        "body": "Doctoral research into what elite performance actually requires in sport and in business."
+      },
+      {
+        "icon": "/images/stopwatch-icon.png",
+        "title": "Tested at the limits",
+        "body": "Proven experience and achievement across industries and ultra-endurance sport (inc. a current World Record)"
+      }
+    ],
+    "image": "/images/model-1-epiphanies-edge.png",
+    "imageAlt": "The Epiphanies Edge — three overlapping fields of experience"
+  },
+  "services": {
+    "eyebrow": "Our services",
+    "items": [
+      {
+        "title": "Executive coaching",
+        "href": "/services#executive-coaching",
+        "image": "/images/service-executive-coaching.webp",
+        "imageAlt": "Two colleagues in conversation in armchairs beside a glass wall",
+        "body": "We meet you where you are and provide a confidential space for senior leaders to think clearly, test ideas and shift ingrained patterns with visible impact on how they lead."
+      },
+      {
+        "title": "Team & board performance",
+        "href": "/services#team-and-board-performance",
+        "image": "/images/service-team-and-board.webp",
+        "imageAlt": "Five colleagues walking and talking along an office atrium walkway",
+        "body": "Through shared understanding, we help executive teams and boards move from competent to exceptional: goal alignment, shared purpose, candid conversations, and the habits of world-class teams."
+      },
+      {
+        "title": "Organisation performance",
+        "href": "/services#organisation-performance",
+        "image": "/images/service-organisation-performance.webp",
+        "imageAlt": "Four colleagues walking up a curved staircase beneath a skylight",
+        "body": "Partnering and interventions that build the leaders your business actually needs, designed for your context, grounded in evidence, judged by changed behaviour and performance results."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Get in touch",
+    "title": "If this sounds like a conversation worth having, we’d like to hear from you.",
+    "label": "Get in touch",
+    "href": "/contact"
+  }
+}

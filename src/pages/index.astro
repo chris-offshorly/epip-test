@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import page from '../content/pages/home.json';
+---
+
+<BaseLayout title={page.hero.title} description={page.hero.body}>
+	<section class="hero">
+		<div class="hero__text">
+			<h1 class="h1">{page.hero.title}</h1>
+			<div>
+				<p class="lede">{page.hero.lede}</p>
+				<p class="p">{page.hero.body}</p>
+			</div>
+			<div class="hero__cta">
+				<a class="btn solid" href={page.hero.cta.href}>{page.hero.cta.label}</a>
+			</div>
+		</div>
+		<div class="hero__media">
+			<img src={page.hero.image} alt={page.hero.imageAlt} width="7960" height="5308" />
+		</div>
+	</section>
+
+	<section class="stats" aria-label="At a glance">
+		{
+			page.stats.map((label, i) => (
+				<>
+					{i > 0 && <div class="stats__divider" aria-hidden="true" />}
+					<div class="stats__item">
+						<div class="h3">{label}</div>
+					</div>
+				</>
+			))
+		}
+	</section>
+
+	<section class="sec">
+		<div class="what">
+			<h2 class="eyebrow">{page.whatWeDo.eyebrow}</h2>
+			<div class="what__body">
+				<p class="lede">{page.whatWeDo.lede}</p>
+				{page.whatWeDo.paragraphs.map((p) => <p class="p">{p}</p>)}
+			</div>
+		</div>
+	</section>
+
+	<section class="sec edge">
+		<div class="edge__intro">
+			<h2 class="h2">{page.edge.title}</h2>
+			<p class="lede">{page.edge.lede}</p>
+			<div class="edge__pillars">
+				{
+					page.edge.pillars.map((pillar) => (
+						<div class="pillar">
+							<img src={pillar.icon} alt="" width="40" height="40" aria-hidden="true" />
+							<p class="p">
+								<strong>{pillar.title}</strong> {pillar.body}
+							</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+		<div class="edge__art">
+			<img src={page.edge.image} alt={page.edge.imageAlt} width="620" height="560" />
+		</div>
+	</section>
+
+	<section class="sec">
+		<h2 class="eyebrow">{page.services.eyebrow}</h2>
+		<div class="svc-list">
+			{
+				page.services.items.map((service) => (
+					<article class="svc">
+						<div class="svc__img">
+							<img src={service.image} alt={service.imageAlt} loading="lazy" />
+						</div>
+						<div class="svc__body">
+							<h3 class="h3">{service.title}</h3>
+							<p class="p">{service.body}</p>
+						</div>
+						<a class="btn" href={service.href}>Explore</a>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="sec cta">
+		<div class="cta__text">
+			<h2 class="eyebrow">{page.cta.eyebrow}</h2>
+			<p class="h2">{page.cta.title}</p>
+		</div>
+		<a class="btn inverse" href={page.cta.href}>{page.cta.label}</a>
+	</section>
+</BaseLayout>

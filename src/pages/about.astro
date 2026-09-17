@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import page from '../content/pages/about.json';
+---
+
+<BaseLayout title={page.hero.title} description={page.hero.lede}>
+	<section>
+		<div class="hero hero--sub">
+			<div class="hero__text">
+				<p class="eyebrow">{page.hero.eyebrow}</p>
+				<h1 class="h1">{page.hero.title}</h1>
+				<div>
+					<p class="lede">{page.hero.lede}</p>
+				</div>
+			</div>
+			<div class="hero__media">
+				<img src={page.hero.image} alt={page.hero.imageAlt} width="5295" height="3381" />
+			</div>
+		</div>
+	</section>
+
+	<section class="sec" style="border-top:1px solid var(--rule)">
+		<div class="split">
+			<h2 class="eyebrow">{page.story.eyebrow}</h2>
+			<div class="split__body">
+				<p class="lede">{page.story.lede}</p>
+				{page.story.paragraphs.map((p) => <p class="p">{p}</p>)}
+			</div>
+		</div>
+	</section>
+
+	<section class="sec resources">
+		<h2 class="eyebrow" style="margin-bottom:1.625rem">{page.team.eyebrow}</h2>
+		<div class="card-grid card-grid--3" style="margin-top:0">
+			{
+				page.team.members.map((person) => (
+					<article class="team-card">
+						<div class="portrait">
+							<img
+								src={person.image}
+								alt={person.name.split(' — ')[0]}
+								style={`object-position:${person.position}`}
+								loading="lazy"
+							/>
+						</div>
+						<h3 class="h3">{person.name}</h3>
+						<p class="p">{person.bio}</p>
+						<a class="eyebrow" href="/contact">Full profile</a>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="sec values">
+		<h2 class="eyebrow" style="margin-bottom:1.625rem">{page.values.eyebrow}</h2>
+		<div class="values-grid">
+			{
+				page.values.items.map((value) => (
+					<div class="value">
+						<p>{value.title}</p>
+						<p>{value.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="sec" style="padding-bottom:0">
+		<h2 class="eyebrow" style="margin-bottom:1.375rem">{page.experience.eyebrow}</h2>
+		<div class="stats">
+			{
+				page.experience.stats.map((label, i) => (
+					<>
+						{i > 0 && <div class="stats__divider" aria-hidden="true" />}
+						<div class="stats__item">
+							<div class="h3">{label}</div>
+						</div>
+					</>
+				))
+			}
+		</div>
+		<div style="margin-top:1.75rem;max-width:820px">
+			<p class="p">{page.experience.body}</p>
+		</div>
+	</section>
+
+	<section class="sec" style="padding-top:2.75rem">
+		<figure class="testimonial">
+			<div class="testimonial__rule" aria-hidden="true"></div>
+			<blockquote class="testimonial__quote">{page.testimonial.quote}</blockquote>
+			<figcaption class="eyebrow testimonial__attribution">{page.testimonial.attribution}</figcaption>
+		</figure>
+	</section>
+
+	<section class="sec" style="padding-bottom:4rem;padding-top:0">
+		<h2 class="eyebrow" style="margin-bottom:1.125rem">{page.clients.eyebrow}</h2>
+		<div style="max-width:900px">
+			<p class="p">{page.clients.body}</p>
+		</div>
+		<div class="logo-grid">
+			{
+				page.clients.logos.map((client) => (
+					<div class="logo-grid__item">
+						<img src={client.file} alt={client.name} loading="lazy" />
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="sec cta">
+		<div class="cta__text">
+			<h2 class="eyebrow">{page.cta.eyebrow}</h2>
+			<p class="h2">{page.cta.title}</p>
+		</div>
+		<a class="btn inverse" href={page.cta.href}>{page.cta.label}</a>
+	</section>
+</BaseLayout>

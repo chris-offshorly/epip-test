@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "eyebrow": "Services",
+    "title": "Helping people perform when it matters most",
+    "lede": "Lasting performance is built through aligned leadership, stronger teams and practical action.",
+    "image": "/images/services-hero.webp",
+    "imageAlt": "Close-up of a rippling, wave-patterned building facade"
+  },
+  "howWeWork": {
+    "title": "How we work",
+    "lede": "Everything we do serves one goal: helping people develop the routines and habits to performance at their best when it matters most.",
+    "paragraphs": [
+      "We work at four interconnected levels: the first is an organisation’s context and purpose. From this position, we work with individual leaders, the teams they form, and the organisations around them. Lasting performance comes from strengthening these three in context.",
+      "Our work combines practical experience, evidence-based thinking and proven methodologies to create meaningful change that delivers measurable results."
+    ],
+    "image": "/images/model-3-how-we-work.png",
+    "imageAlt": "Four concentric layers labelled context, organisation, team and individual, mapped to organisation performance, team and board performance, and executive coaching"
+  },
+  "serviceAreas": {
+    "eyebrow": "Service areas",
+    "items": [
+      {
+        "title": "Executive coaching",
+        "image": "/images/service-executive-coaching.webp",
+        "imageAlt": "Two colleagues in conversation in armchairs beside a glass wall",
+        "body": "Coaching senior leaders has been at the heart of Epiphanies since day one. We meet you where you are with no judgment, offering a confidential space to think out loud, test ideas and understand the dynamics at play; in yourself, your team and your organisation. Using 360 feedback, targeted psychometrics and structured reflection, we go after root causes, not symptoms. Leaders leave with sharper self-awareness and habits that hold under pressure.",
+        "suits": "Leaders in moments of in-role or inter-role transformation looking to elevate their performance."
+      },
+      {
+        "title": "Team & board performance",
+        "image": "/images/service-team-and-board.webp",
+        "imageAlt": "Five colleagues in discussion on an office atrium walkway",
+        "body": "Executive teams set direction and shape culture and their effectiveness erodes fast under new leadership, market pressure or drift. We coach teams from competent to exceptional: clarifying shared purpose, building candour, and borrowing the review-and-improve discipline of elite sport. The strongest results come from pairing team coaching with 1:1 coaching for its members.",
+        "suits": "Senior teams whose market, business and ambition demand sustained next-level performance — who need to achieve more together than any of them could alone."
+      },
+      {
+        "title": "Organisation performance",
+        "image": "/images/service-organisation-performance.webp",
+        "imageAlt": "Four colleagues in conversation on a staircase beneath a skylight",
+        "body": "A leadership pipeline doesn’t build itself. We partner with HR and business leaders to design development that starts from your context, not a syllabus: assess current capability, target the gaps, and build programmes people actually look forward to. Success is measured the only way that counts — leaders who behave differently, not just know more.",
+        "suits": "Business leaders seeking to raise the leadership capability of key sections of their business effort."
+      }
+    ]
+  },
+  "methodology": {
+    "title": "Our proven methodology.",
+    "lede": "Every engagement follows the same simple discipline.",
+    "steps": [
+      {
+        "icon": "/images/stethoscope-icon.svg",
+        "title": "Diagnose",
+        "body": "Understand the people, the context and the goal before prescribing anything — then learn at pace as we go."
+      },
+      {
+        "icon": "/images/target-icon.svg",
+        "title": "Intervene",
+        "body": "Coaching, facilitation and development designed for your situation, never off the shelf."
+      },
+      {
+        "icon": "/images/clock-and-loop-icon.svg",
+        "title": "Embed",
+        "body": "New routines and habits that replace the old, built into how the work actually gets done."
+      },
+      {
+        "icon": "/images/chart-and-magnifier-icon.svg",
+        "title": "Measure",
+        "body": "Baseline where you are, track the change, in behaviour and in results, and adjust."
+      }
+    ],
+    "closing": "Sustained performance."
+  },
+  "caseStudies": {
+    "eyebrow": "Selected case studies",
+    "items": [
+      {
+        "title": "Rebuilding a boardroom in crisis",
+        "body": "A breakdown in relationships at the top of a multinational had stalled decision-making. Working with the board over several months, we rebuilt trust, restored candour and re-established a working rhythm. The board went on to lead a major transformation, turning a loss making business into one that generated substantial free cash."
+      },
+      {
+        "title": "Integrating a new CEO",
+        "body": "A newly formed leadership team needed to align quickly behind an incoming CEO’s transformation agenda. Combining team facilitation with 1:1 coaching, we helped the team agree priorities, ways of working and how to disagree well."
+      },
+      {
+        "title": "From good to great — a European multinational",
+        "body": "Over a multi-year partnership with the executive leadership team, we combined team development with individual coaching. The CHRO’s verdict: “crisp and structured coaching to new levels of business effectiveness and inspiration.”"
+      }
+    ]
+  },
+  "faqs": {
+    "eyebrow": "FAQs",
+    "items": [
+      {
+        "question": "Who do you work with?",
+        "answer": "Senior leaders, executive teams and boards, mostly in multinational businesses, across sectors, in more than 30 countries."
+      },
+      {
+        "question": "What does an engagement look like?",
+        "answer": "It starts with a conversation, then a diagnosis. Coaching typically runs six to twelve months; our Team Coaching work is a series of facilitated sessions built around real business moments."
+      },
+      {
+        "question": "How do you measure impact?",
+        "answer": "We agree what success looks like up front, then track it through re-assessment, feedback from the people around you, and business results."
+      },
+      { "question": "Do you work virtually?", "answer": "Yes. We work in person and online, wherever you are." },
+      {
+        "question": "How do we start?",
+        "answer": "Email the.team@epiphaniesllp.com or use the contact form. No pitch, just a conversation about what you’re trying to achieve."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Get in touch",
+    "title": "Tell us what you’re wrestling with. We’ll tell you honestly whether we can help.",
+    "label": "Get in touch",
+    "href": "/contact"
+  }
+}

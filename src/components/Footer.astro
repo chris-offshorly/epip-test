@@ -1,0 +1,52 @@
+---
+import site from '../content/settings.json';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="ftr">
+	<div class="ftr__grid">
+		<div class="ftr__logo">
+			<img src="/images/logo-inverse.png" alt={site.name} width="3071" height="863" />
+		</div>
+
+		<div class="ftr__col">
+			<span class="eyebrow">Explore</span>
+			{site.footerExplore.map((item) => <a class="ftr__link" href={item.href}>{item.label}</a>)}
+		</div>
+
+		<div class="ftr__col">
+			<span class="eyebrow">Connect</span>
+
+			<div class="ftr__row">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b7a9bc" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect>
+					<path d="m3 6 9 7 9-7"></path>
+				</svg>
+				<a class="ftr__link" href={`mailto:${site.email}`}>{site.email}</a>
+			</div>
+
+			<div class="ftr__row">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b7a9bc" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"></path>
+				</svg>
+				<span class="ftr__link">{site.legalName}</span>
+			</div>
+
+			<div class="ftr__row">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b7a9bc" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<circle cx="12" cy="12" r="9"></circle>
+					<path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"></path>
+				</svg>
+				<span class="ftr__link">{site.location}</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="ftr__legal">
+		<span>&copy; {year} {site.legalName}</span>
+		<div class="ftr__legal-links">
+			{site.footerLegal.map((item) => <a href={item.href}>{item.label}</a>)}
+		</div>
+	</div>
+</footer>

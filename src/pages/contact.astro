@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import page from '../content/pages/contact.json';
+
+// This is a static site, so the form needs an external handler to actually
+// deliver mail (Formspree, Basin, Netlify Forms, or your own endpoint).
+// Paste that endpoint here to make the form live. Left empty, the form renders
+// but submits nowhere.
+const FORM_ENDPOINT = '';
+---
+
+<BaseLayout title={page.hero.title} description={page.hero.lede}>
+	<section>
+		<div class="hero hero--sub">
+			<div class="hero__text">
+				<p class="eyebrow">{page.hero.eyebrow}</p>
+				<h1 class="h1">{page.hero.title}</h1>
+				<div>
+					<p class="lede">{page.hero.lede}</p>
+					{page.hero.paragraphs.map((p) => <p class="p">{p}</p>)}
+				</div>
+			</div>
+			<div class="hero__media">
+				<img
+					src={page.hero.image}
+					alt={page.hero.imageAlt}
+					width="3872"
+					height="2592"
+					style="object-position:center 55%"
+				/>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact-section">
+		<h2 class="eyebrow">{page.form.eyebrow}</h2>
+		<div class="form-intro">
+			<p class="p">{page.form.intro}</p>
+		</div>
+
+		<form class="contact-form" action={FORM_ENDPOINT} method="post">
+			<div class="form-row">
+				{
+					page.form.fields.slice(0, 2).map((field) => (
+						<label class="field">
+							<span class="eyebrow">{field.label}</span>
+							<input
+								class="input"
+								type={field.type}
+								name={field.name}
+								placeholder={field.placeholder}
+								autocomplete={field.autocomplete}
+								required={field.required}
+							/>
+						</label>
+					))
+				}
+			</div>
+
+			{
+				page.form.fields.slice(2).map((field) => (
+					<label class="field">
+						<span class="eyebrow">{field.label}</span>
+						{field.type === 'textarea' ? (
+							<textarea class="input" name={field.name} placeholder={field.placeholder} required={field.required} />
+						) : (
+							<input
+								class="input"
+								type={field.type}
+								name={field.name}
+								placeholder={field.placeholder}
+								autocomplete={field.autocomplete}
+								required={field.required}
+							/>
+						)}
+					</label>
+				))
+			}
+
+			<button class="btn solid" type="submit">{page.form.submitLabel}</button>
+		</form>
+	</section>
+</BaseLayout>
+
+<style>
+	.contact-section {
+		padding: 3.5rem var(--gutter) 4.5rem;
+		border-top: 1px solid var(--rule);
+	}
+</style>

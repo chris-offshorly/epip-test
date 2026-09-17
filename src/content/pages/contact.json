@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Let’s start the conversation",
+    "lede": "Every meaningful change begins with a conversation.",
+    "paragraphs": [
+      "Whether you’re exploring organisation performance, executive coaching or team performance, we’d be delighted to discuss your goals and how we might help.",
+      "If this feels like the right time to start the conversation, we’d love to hear from you."
+    ],
+    "image": "/images/contact-hero.webp",
+    "imageAlt": "A light-filled glazed walkway receding towards a doorway"
+  },
+  "form": {
+    "eyebrow": "Contact form",
+    "intro": "Tell us a little about what’s on your mind. We’ll reply within two working days.",
+    "fields": [
+      { "label": "Name", "name": "name", "type": "text", "placeholder": "Your name", "autocomplete": "name", "required": true },
+      { "label": "Email", "name": "email", "type": "email", "placeholder": "you@company.com", "autocomplete": "email", "required": true },
+      { "label": "Company", "name": "company", "type": "text", "placeholder": "Organisation", "autocomplete": "organization", "required": false },
+      { "label": "Message", "name": "message", "type": "textarea", "placeholder": "How can we help?", "required": true }
+    ],
+    "submitLabel": "Send message"
+  }
+}

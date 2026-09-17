@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+#
+# Render Blueprint — https://render.com/docs/blueprint-spec
+#
+# This declares the site as a Render static site, so the service is defined in
+# the repository rather than clicked together in the dashboard. Pushing to
+# `main` triggers a deploy.
+#
+# To use it: Render dashboard -> New + -> Blueprint -> pick this repo.
+
+services:
+  - type: web
+    name: epiphanies-website
+    runtime: static
+    branch: main
+    autoDeploy: true
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      # Astro 7 requires Node >= 22.12.0. Pinning here overrides Render's
+      # default Node version; `engines` in package.json is the fallback signal.
+      - key: NODE_VERSION
+        value: 22.12.0

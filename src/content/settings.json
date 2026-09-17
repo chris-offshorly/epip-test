@@ -1,0 +1,24 @@
+{
+  "name": "Epiphanies",
+  "legalName": "Epiphanies LLP",
+  "email": "the.team@epiphaniesllp.com",
+  "location": "UK based, working worldwide",
+  "nav": [
+    { "label": "About", "href": "/about" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Insights", "href": "/insights" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "headerCta": { "label": "Get in touch", "href": "/contact" },
+  "footerExplore": [
+    { "label": "About", "href": "/about" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Insights", "href": "/insights" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "footerLegal": [
+    { "label": "Privacy policy", "href": "/privacy-policy" },
+    { "label": "Cookies", "href": "/cookies" },
+    { "label": "Terms", "href": "/terms" }
+  ]
+}
